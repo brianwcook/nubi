@@ -225,7 +225,7 @@ spec:
           - name: COMMIT_SHA
             value: $(tasks.clone-repository.results.commit)
         runAfter:
-          - prefetch-dependencies
+          - clone-repository
         taskRef:
           params:
             - name: name
