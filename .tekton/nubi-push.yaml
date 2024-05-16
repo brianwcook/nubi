@@ -18,32 +18,19 @@ metadata:
 spec:
   params:
   - name: dockerfile
-    value: Containerfile-F38
+    value: Dockerfile
   - name: git-url
     value: '{{repo_url}}'
   - name: image-expires-after
     value: 5d
   - name: output-image
-    value: quay.io/redhat-user-workloads/brianwcook-tenant/ostree-builder/ostree-builder:{{revision}}
+    value: quay.io/redhat-user-workloads/brianwcook-tenant/nubi/nubi:{{revision}}
   - name: path-context
     value: .
   - name: revision
     value: '{{revision}}'
   pipelineSpec:
     finally:
-      - name: show-sbom
-        params:
-          - name: IMAGE_URL
-            value: $(tasks.build-container-amd64.results.IMAGE_URL)
-        taskRef:
-          params:
-            - name: name
-              value: show-sbom
-            - name: bundle
-              value: quay.io/redhat-appstudio-tekton-catalog/task-show-sbom:0.1@sha256:82737c8d365c620295fa526d21a481d4614f657800175ddc0ccd7846c54207f8
-            - name: kind
-              value: task
-          resolver: bundles
       - name: show-summary
         params:
           - name: pipelinerun-name
@@ -125,9 +112,6 @@ spec:
       - description: ""
         name: CHAINS-GIT_COMMIT
         value: $(tasks.clone-repository.results.commit)
-      - description: ""
-        name: JAVA_COMMUNITY_DEPENDENCIES
-        value: $(tasks.build-container-amd64.results.JAVA_COMMUNITY_DEPENDENCIES)
     tasks:
       - name: init
         params:
