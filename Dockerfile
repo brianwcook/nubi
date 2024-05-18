@@ -38,9 +38,6 @@ LABEL description="This is an image."
 LABEL io.k8s.display-name="Ubi8"
 LABEL io.openshift.expose-services=""
 
-# I added a line.
-RUN dnf -y install jq
-
 COPY --from=builder /mnt/rootfs/ /
 RUN rm -rf /etc/yum.repos.d/*.repo
 COPY --from=builder /etc/yum.repos.d/ubi.repo /etc/yum.repos.d/ubi.repo
