@@ -39,7 +39,7 @@ LABEL io.k8s.display-name="Ubi8"
 LABEL io.openshift.expose-services=""
 
 # I added a line.
-dnf -y install jq
+RUN dnf -y install jq
 
 COPY --from=builder /mnt/rootfs/ /
 RUN rm -rf /etc/yum.repos.d/*.repo
