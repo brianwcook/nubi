@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/ubi AS builder
+FROM registry.access.redhat.com/ubi9/ubi AS builder
 
 RUN mkdir -p /mnt/rootfs
 
@@ -27,15 +27,15 @@ RUN \
 RUN rm -rf /mnt/rootfs/var/cache/* /mnt/rootfs/var/log/dnf* /mnt/rootfs/var/log/yum.*
 
 FROM scratch
-LABEL maintainer="Red Hat, Inc."LABEL com.redhat.component="ubi8-container"
-LABEL name="ubi8/ubi"
-LABEL version="8.5"
+LABEL maintainer="Red Hat, Inc."LABEL com.redhat.component="totally not a ubi9-container"
+LABEL name="nubi9/nubi"
+LABEL version="9.something"
 #label for EULA
 LABEL com.redhat.license_terms="https://www.redhat.com/en/about/red-hat-end-user-license-agreements#UBI"
 #labels for container catalog
-LABEL summary="ubi8 image"
+LABEL summary="not a ubi8 image"
 LABEL description="This is an image."
-LABEL io.k8s.display-name="Ubi8"
+LABEL io.k8s.display-name="not Ubi 9. Not at all."
 LABEL io.openshift.expose-services=""
 
 COPY --from=builder /mnt/rootfs/ /
