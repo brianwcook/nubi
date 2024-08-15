@@ -27,7 +27,8 @@ RUN \
 RUN rm -rf /mnt/rootfs/var/cache/* /mnt/rootfs/var/log/dnf* /mnt/rootfs/var/log/yum.*
 
 FROM scratch
-LABEL maintainer="Red Hat, Inc."LABEL com.redhat.component="totally not a ubi9-container"
+LABEL maintainer="bcook@redhat.com"
+LABEL com.redhat.component="totally not a ubi9-container"
 LABEL name="nubi9/nubi"
 LABEL version="9.something"
 #label for EULA
