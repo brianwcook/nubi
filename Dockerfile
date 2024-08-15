@@ -21,7 +21,7 @@ RUN \
         tar \
         vim-minimal \
         yum \
-        --releasever 8 --setopt install_weak_deps=false --nodocs -y; \
+        --releasever 9 --setopt install_weak_deps=false --nodocs -y; \
     dnf --installroot /mnt/rootfs clean all
 
 RUN rm -rf /mnt/rootfs/var/cache/* /mnt/rootfs/var/log/dnf* /mnt/rootfs/var/log/yum.*
