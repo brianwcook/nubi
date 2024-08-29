@@ -1,0 +1,35 @@
+# dnf install qemu-user-static
+# systemctl start systemd-binfmt
+# install https://github.com/konflux-ci/rpm-lockfile-prototype
+# rpm-lockfile-prototype --debug rpms.in.yaml
+
+contentOrigin:
+  repofiles:
+    - ubi.repo
+packages:
+    - bash
+    - coreutils-single
+    - coreutils-single
+    - crypto-policies-scripts
+    - libdnf-plugin-subscription-manager
+    - findutils
+    - gdb-gdbserver
+    - glibc-minimal-langpack
+    - glibc-minimal-langpack
+    - gzip
+    - langpacks-en
+    - redhat-release
+    - rootfiles
+    - subscription-manager
+    - tar
+    - vim-minimal
+    - yum
+
+
+arches:
+  - x86_64
+  #- aarch64
+  #- ppc64le
+  #- s390x
+context:
+    bare: true

@@ -8,7 +8,7 @@ RUN \
         coreutils-single \
         coreutils-single \
         crypto-policies-scripts \
-        dnf-plugin-subscription-manager \
+        libdnf-plugin-subscription-manager \
         findutils \
         gdb-gdbserver \
         glibc-minimal-langpack \
